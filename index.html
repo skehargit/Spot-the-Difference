@@ -12,15 +12,19 @@
         <div class="game-header">
           <h1 class="game-title">Spot the Difference</h1>
           <!--  this toggle will help to select the differences position so that developer can easily update the position in .json file. right now i am hiding it so no user can see it and whenever i want to add new image i can use the toggle to developer and edit things.  -->
-          <!-- <div class="mode-toggle">
-                    <button id="user-mode-btn" class="mode-btn active">User Mode</button>
-                    <button id="dev-mode-btn" class="mode-btn">Developer Mode</button>
-                </div> -->
+          <div class="mode-toggle">
+            <button id="user-mode-btn" class="mode-btn active">
+              User Mode
+            </button>
+            <!-- developer mode is hide for users -->
+            <button id="dev-mode-btn" class="mode-btn hidden">Developer Mode</button>
+          </div>
           <div class="start-button-container">
             <button id="start-game-btn" class="start-btn">Start Game</button>
-            
           </div>
-          <small>Note: The timer will start after clicking the start button.</small>
+          <small
+            >Note: The timer will start after clicking the start button.</small
+          >
         </div>
         <div class="game-content">
           <div class="image-container">
@@ -35,7 +39,13 @@
                 <span id="timer">00:00</span>
               </div>
               <div id="wrong-indicator" class="wrong-indicator">Misses: 0</div>
-              <div id="victory-message" class="game-indicator" style="display: none;">You Win!</div>
+              <div
+                id="victory-message"
+                class="game-indicator"
+                style="display: none"
+              >
+                You Win!
+              </div>
             </div>
             <div class="image-wrapper right" id="right-image-container">
               <img src="" alt="Image 2" id="image2" />
