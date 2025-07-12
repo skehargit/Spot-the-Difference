@@ -21,12 +21,18 @@ export const GameProvider = ({ children }) => {
   // Game configuration
   const [gameConfig, setGameConfig] = useState(null);
 
-  // Audio references
-  const [audio, setAudio] = useState({
-    clickSound: null,
-    correctSound: null,
-    loseSound: null,
-  });
+  // Audio paths
+  const audioSources = {
+    click: "/assets/click.wav",
+    correct: "/assets/correct.wav",
+    lose: "/assets/lose.wav",
+  };
+  
+  // Function to play sounds
+  const playSound = (soundType) => {
+    const audio = new Audio(audioSources[soundType]);
+    audio.play();
+  };
 
   // Load game configuration
   useEffect(() => {
@@ -55,12 +61,7 @@ export const GameProvider = ({ children }) => {
 
     loadGameConfig();
 
-    // Initialize audio
-    setAudio({
-      clickSound: new Audio("/assets/click.wav"),
-      correctSound: new Audio("/assets/correct.wav"),
-      loseSound: new Audio("/assets/lose.wav"),
-    });
+    // No need to initialize audio objects anymore as we create them on demand
 
     return () => {
       // Cleanup
@@ -91,8 +92,8 @@ export const GameProvider = ({ children }) => {
   // Handle difference found
   const handleDifferenceFound = (index) => {
     // Play correct sound
-    audio.clickSound?.play();
-    audio.correctSound?.play();
+    playSound('click');
+    playSound('correct');
 
     setFoundDifferences((prev) => {
       // Add the index to the array if not already included
@@ -113,8 +114,8 @@ export const GameProvider = ({ children }) => {
   // Handle wrong click
   const handleWrongClick = () => {
     // Play wrong sound
-    audio.clickSound?.play();
-    audio.loseSound?.play();
+    playSound('click');
+    playSound('lose');
 
     setWrongAttempts((prev) => prev + 1);
   };

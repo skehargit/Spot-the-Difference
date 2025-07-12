@@ -39,6 +39,15 @@ yarn dev
 
 The application will be available at `http://localhost:5173` (or another port if 5173 is already in use).
 
+## Admin Interface
+
+The application includes an admin interface for managing games:
+
+- Access the admin interface at: `http://localhost:5173/admin`
+- View instructions on how to add and upload new games at: `http://localhost:5173/instructions`
+
+The admin interface provides a user-friendly way to upload images, define difference points, and add new games to the catalog without manually editing JSON files.
+
 
 ## Adding or Editing Games
 
