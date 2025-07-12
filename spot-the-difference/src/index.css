@@ -1,0 +1,285 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #213547;
+  background-color: #f0f2f5;
+}
+
+body {
+  margin: 0;
+}
+
+/* Game container styles */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  /* padding: 1rem; */
+}
+
+.game {
+  /* background-color: #fff; */
+  border-radius: 8px;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  overflow: hidden;
+}
+
+/* Image container styles */
+/* .image-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .image-container {
+    flex-direction: row;
+  }
+} */
+
+/* .image-wrapper {
+  position: relative;
+  flex: 1;
+} */
+
+/* .image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+} */
+
+/* Difference markers */
+.difference {
+  position: absolute;
+  /* Removed fixed width and height to allow JSON sizes to be applied */
+  border-radius: 100%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 10;
+  aspect-ratio: 1 / 1 !important;
+  box-sizing: border-box;
+}
+
+/* Specific styles for developer mode markers */
+.dev-marker {
+  aspect-ratio: 1 / 1 !important;
+  box-sizing: border-box !important;
+  /* Removed fixed width/height to allow JSON sizes to be applied */
+  border-radius: 100% !important;
+  background-color: rgba(255, 0, 0, 0.7) !important;
+  border: 0.3vw solid red !important;
+  box-shadow: 0 0 1vw rgba(255, 0, 0, 1) !important;
+}
+.difference.found {
+  background-color: rgba(0, 255, 0, 0.5) !important;
+  border: 3px solid rgba(0, 255, 0, 0.9) !important;
+}
+
+/* Blurred image state before game starts */
+.image-wrapper.blurred {
+  pointer-events: none;
+}
+
+.image-wrapper.blurred img {
+  filter: blur(5px);
+  opacity: 0.7;
+  transition: all 0.5s ease;
+}
+
+/* Developer Interface Styles - moved to DeveloperInterface.css */
+
+/* User Interface Styles */
+.user-interface {
+  text-align: center;
+  padding: 20px;
+}
+
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.start-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Game Selector Styles */
+.game-selector {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.game-selector h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.game-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.game-thumbnail {
+  height: 180px;
+  overflow: hidden;
+}
+
+.game-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.game-card:hover .game-thumbnail img {
+  transform: scale(1.05);
+}
+
+.game-info {
+  padding: 15px;
+}
+
+.game-info h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.game-info p {
+  margin: 0 0 10px 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.difficulty {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.difficulty.easy {
+  background-color: #e6f7e6;
+  color: #2e7d32;
+}
+
+.difficulty.medium {
+  background-color: #fff8e1;
+  color: #ff8f00;
+}
+
+.difficulty.hard {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #d32f2f;
+}
+
+/* Counter and timer styles */
+.difference-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.counter-box {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Victory message */
+.victory-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ecfdf5;
+  border: 2px solid #10b981;
+  color: #047857;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-width: 90%;
+  width: 400px;
+}
+
+/* Animation for victory message */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Animation for wrong indicator */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.shake {
+  animation: shake 0.5s;
+}

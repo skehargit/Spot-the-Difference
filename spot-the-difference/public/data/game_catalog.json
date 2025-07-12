@@ -1,0 +1,36 @@
+{
+  "games": [
+    {
+      "id": "dog",
+      "title": "Dog",
+      "description": "",
+      "thumbnail": "dog1.jpg",
+      "configFile": "dog.json",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bugs",
+      "title": "Bugs",
+      "description": "",
+      "thumbnail": "bugs1.jpg",
+      "configFile": "bugs.json",
+      "difficulty": "easy"
+    },
+    {
+      "id": "couple",
+      "title": "Couple",
+      "description": "",
+      "thumbnail": "couple1.jpg",
+      "configFile": "couple.json",
+      "difficulty": "medium"
+    },
+    {
+      "id": "reading_book",
+      "title": "Reading Book",
+      "description": "",
+      "thumbnail": "reading_img2.jpg",
+      "configFile": "reading_book.json",
+      "difficulty": "hard"
+    }
+  ]
+}

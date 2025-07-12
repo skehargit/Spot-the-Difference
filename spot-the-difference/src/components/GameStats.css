@@ -1,0 +1,94 @@
+/* GameStats.css */
+.game-stats {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-wrap: nowrap;
+  width: fit-content;
+  margin: 0 auto;
+  gap: 4px;
+  min-height: 32px;
+  padding: 4px;
+  font-size: 0;
+}
+
+/* On large screens (≥1280px), display in column */
+@media (min-width: 1280px) {
+  .game-stats {
+    flex-direction: column;
+  }
+}
+
+.stat-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  min-width: 65px;
+  height: 30px;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.counter-box {
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.timer-box {
+  color: #2196f3;
+  margin: 0;
+}
+
+.wrong-indicator {
+  color: #f44336;
+  margin: 0;
+}
+
+.stat-label {
+  font-size: 11px;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.stat-value {
+  font-weight: bold;
+  white-space: nowrap;
+  font-size: 11px;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Make sure the stats bar works well with the responsive layout */
+@media (max-width: 480px) {
+  .game-stats {
+    min-height: 28px;
+  }
+  
+  .stat-item {
+    padding: 2px;
+    min-width: 55px;
+    height: 26px;
+  }
+  
+  .stat-label,
+  .stat-value {
+    font-size: 10px;
+  }
+}
